@@ -1,49 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title> Jovian careers </title>
-    <style> 
-      h1 {
-      font-size: 40px;
-      font-family: Roboto;
-      font-weight: Normal;
-      color: rgb(50,50,50);
-      text-align: center;  
-      }
+    <style>
       #banner{
-        width: 100%;
         height: 360px;
+        width: 100%;
         object-fit: cover;
       }
-      h2{
-        font-family: Roboto;
-        font-size: 32px;
-        color: rgb(100,100,100);
-        text-align: center;
-        font-weight: normal;
-      }
-      .bodytext  {
-        font-family: Roboto;
-        color: rgb(80,80,80);
-      }
-      #container{
-      max-width: 720px;
-      margin: 0 auto 0 auto;
-      }
-    </style>    
+    </style>
   </head>
   <body>
-    <div id= "container">
-    <h1> Jovian Careers </h1>
-    <img id= "banner" src="https://97b0ef16-2938-4413-ba70-0fa84b319d46-00-vr4zl9ck0kg4.pike.replit.dev/static/Banner.jpg"
+    <div class="container">
+    <h1 class="text-center mt-2 mb-4">{{company_name}}  Careers </h1><!--we are rending company name from flask using company_name specified in return statement, this is done to render dynamic data-->
+    <img class="img-fluid" id= "banner" src="https://97b0ef16-2938-4413-ba70-0fa84b319d46-00-vr4zl9ck0kg4.pike.replit.dev/static/Banner.jpg"
       height="320px">
-    <h2> About Jovian</h2>
-    <p class="bodytext"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-    <h2> Job Openings </h2>
-    <p class="bodytext"> To do - show job openings here </p>
-    <div style="text-align: center">
-    <button> Contact us </button>
-      <p> copyright 2025,Jovian</p>
+    <h2 class="text-center mt-2 mb-4"> About Jovian</h2>
+    <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+    <h2 class="text-center"> Job Openings </h2>
+      <div>
+       {% for job in jobs %}
+        {% include 'jobitems.html' %}
+      {%endfor%}
+        <div>
+          <div class="text-center">
+            <button class="btn btn-primary btn-lg"> Contact us </button>
+      <p class="mt-4"> copyright 2025,Jovian</p>
     </div>
     </div>     
   </body>
